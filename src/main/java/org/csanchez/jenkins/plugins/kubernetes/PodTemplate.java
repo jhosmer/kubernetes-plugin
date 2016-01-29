@@ -38,6 +38,8 @@ public class PodTemplate extends AbstractDescribableImpl<PodTemplate> {
 
     private String label;
 
+    private String serviceAccount;
+
     private final List<PodVolume> volumes;
 
     @DataBoundConstructor
@@ -137,6 +139,15 @@ public class PodTemplate extends AbstractDescribableImpl<PodTemplate> {
 
     public boolean isPrivileged() {
         return privileged;
+    }
+
+    public String getServiceAccount() {
+        return serviceAccount;
+    }
+
+    @DataBoundSetter
+    public void setServiceAccount(String serviceAccount) {
+        this.serviceAccount = serviceAccount;
     }
 
     @Extension

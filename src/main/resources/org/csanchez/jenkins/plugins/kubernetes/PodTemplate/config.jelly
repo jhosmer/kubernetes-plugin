@@ -68,4 +68,8 @@ THE SOFTWARE.
     </f:entry>
   </f:advanced>
 
+  <f:entry field="serviceAccount" title="${%Service Account}">
+    <f:textbox default="default"/>
+  </f:entry>
+
 </j:jelly>
