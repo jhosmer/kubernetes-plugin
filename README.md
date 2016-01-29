@@ -22,13 +22,13 @@ see the [Docker image source code](https://github.com/carlossg/jenkins-slave-doc
 
 # Configuration on Google Container Engine
 
-Create a cluster 
+Create a cluster
 ```
     gcloud container clusters create jenkins --num-nodes 1 --machine-type g1-small
 ```
 and note the admin password and server certitifate.
 
-Or use Google Developer Console to create a Container Engine cluster, then run 
+Or use Google Developer Console to create a Container Engine cluster, then run
 ```
     gcloud container clusters get-credentials
     kubectl config view --raw
@@ -62,10 +62,7 @@ A local testing cluster with one node can be created with Docker Compose
     docker-compose up
 
 When using boot2docker or Docker Engine with a remote host, the remote Kubernetes API can be exposed
-with `docker-machine ssh MACHINE_NAME -L 0.0.0.0:8080:localhost:8080` or `boot2docker ssh -L 0.0.0.0:8080:localhost:8080`
-
-    kubectl create -f ./src/main/kubernetes/jenkins-local.yml
-    kubectl create -f ./src/main/kubernetes/service.yml
+with `docker-machine ssh MACHINE_NAME -- -L 0.0.0.0:8080:localhost:8080` or `boot2docker ssh -L 0.0.0.0:8080:localhost:8080`
 
 More info
 
@@ -82,8 +79,8 @@ Create a GCE disk named `kubernetes-jenkins` to store the data.
 
 Creating the pods and services
 
-    kubectl create -f ./src/main/kubernetes/jenkins-gke.yml
-    kubectl create -f ./src/main/kubernetes/service-gke.yml
+    kubectl create -f ./src/main/kubernetes/jenkins.yml
+    kubectl create -f ./src/main/kubernetes/service.yml
 
 Connect to the ip of the network load balancer created by Kubernetes, port 80.
 Get the ip (in this case `104.197.19.100`) with `kubectl describe services/jenkins`
@@ -109,7 +106,8 @@ Get the ip (in this case `104.197.19.100`) with `kubectl describe services/jenki
 Configure Jenkins, adding the `Kubernetes` cloud under configuration, setting
 Kubernetes URL to the container engine cluster endpoint or simply `https://kubernetes.default.svc.cluster.local`.
 Under credentials, click `Add` and select `Kubernetes Service Account`,
-or alternatively use the Kubernetes API username and password.
+or alternatively use the Kubernetes API username and password. Select 'Certificate' as credentials type if the
+kubernetes cluster is configured to use client certificates for authentication.
 
 ![image](credentials.png)
 
