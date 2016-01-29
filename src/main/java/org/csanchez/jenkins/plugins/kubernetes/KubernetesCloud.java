@@ -36,6 +36,7 @@ import java.net.URL;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -184,7 +185,7 @@ public class KubernetesCloud extends Cloud {
      *
      * @return Docker client.
      */
-    public KubernetesClient connect() throws UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException, IOException {
+    public KubernetesClient connect() throws UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException, IOException, CertificateEncodingException {
 
         LOGGER.log(Level.FINE, "Building connection to Kubernetes host " + name + " URL " + serverUrl);
 

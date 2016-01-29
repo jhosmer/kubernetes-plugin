@@ -8,16 +8,16 @@
 
   <groupId>org.csanchez.jenkins.plugins</groupId>
   <artifactId>kubernetes</artifactId>
-  <version>0.6-SNAPSHOT</version>
+  <version>0.7-SNAPSHOT</version>
   <name>Kubernetes plugin</name>
   <description>Jenkins plugin to run dynamic slaves in a Kubernetes/Docker environment</description>
   <packaging>hpi</packaging>
   <url>https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin</url>
 
   <scm>
-    <connection>scm:git:ssh://github.com/jenkinsci/kubernetes-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/kubernetes-plugin.git</developerConnection>
-    <url>https://github.com/jenkinsci/kubernetes-plugin</url>
+    <connection>scm:git:ssh://github.com/jhosmer/kubernetes-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/jhosmer/kubernetes-plugin.git</developerConnection>
+    <url>https://github.com/jhosmer/kubernetes-plugin</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -26,6 +26,11 @@
       <id>carlos</id>
       <name>Carlos Sanchez</name>
       <email>carlos@apache.org</email>
+    </developer>
+    <developer>
+      <id>jhosmer</id>
+      <name>Jonathan Hosmer</name>
+      <email>jonathan.hosmer@vmturbo.com</email>
     </developer>
   </developers>
 
@@ -105,12 +110,10 @@
       <url>http://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
-
   <pluginRepositories>
     <pluginRepository>
       <id>repo.jenkins-ci.org</id>
       <url>http://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
-
 </project>
